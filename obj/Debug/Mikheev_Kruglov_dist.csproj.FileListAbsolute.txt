@@ -1,0 +1,7 @@
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\bin\Debug\Mikheev_Kruglov_dist.exe.config
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\bin\Debug\Mikheev_Kruglov_dist.exe
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\bin\Debug\Mikheev_Kruglov_dist.pdb
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\obj\Debug\Mikheev_Kruglov_dist.csproj.AssemblyReference.cache
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\obj\Debug\Mikheev_Kruglov_dist.csproj.CoreCompileInputs.cache
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\obj\Debug\Mikheev_Kruglov_dist.exe
+C:\Users\Иван\source\repos\Mikheev_Kruglov_dist\obj\Debug\Mikheev_Kruglov_dist.pdb
