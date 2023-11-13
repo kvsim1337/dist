@@ -20,12 +20,13 @@ namespace Mikheev_Kruglov_dist
             // Создание и заполнение двумерного массива:
             int[,] array = RandomFilling(rows, cols);
 
-            // Вычисление и вывод среднего арифметического положительных чисел:
-            Console.WriteLine($"\nСреднее арифметическое положительных чисел: {CalcArithmetic(array)}");
-            Console.ReadKey();
-
             // Вывод заполненного массива на экран:
             PrinterArray(array);
+
+            // Вычисление и вывод среднего арифметического положительных чисел:
+            Console.WriteLine($"\nСреднее арифметическое положительных чисел: {CalcArithmetic(array)}");
+
+            Console.ReadKey();
         }
 
         // Метод заполнения рандомными числами:
