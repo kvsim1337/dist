@@ -9,7 +9,7 @@ namespace Mikheev_Kruglov_dist
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             // Запрашивание количества строк и столбцов:
             Console.Write("Введите количество строк: ");
@@ -17,56 +17,66 @@ namespace Mikheev_Kruglov_dist
             Console.Write("Введите количество столбцов: ");
             int cols = int.Parse(Console.ReadLine());
 
-            // Создание двумерного массива:
-            int[,] array = new int[rows, cols];
+            // Создание и заполнение двумерного массива:
+            int[,] array = RandomFilling(rows, cols);
 
-            // Заполнение двумерного массива рандомными числами:
-            Random random = new Random();
+            // Вычисление и вывод среднего арифметического положительных чисел:
+            Console.WriteLine($"\nСреднее арифметическое положительных чисел: {CalcArithmetic(array)}");
+            Console.ReadKey();
 
             // Вывод заполненного массива на экран:
-            Console.WriteLine("\nЗаполненный массив: ");
+            PrinterArray(array);
+        }
+
+        // Метод заполнения рандомными числами:
+        static int[,] RandomFilling(int rows, int cols)
+        {
+            int[,] array = new int[rows, cols];
+            Random random = new Random();
+
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
                     // Заполнение случайными числами от -100 до 100:
                     array[i, j] = random.Next(-100, 100);
+                }
+            }
+            return array;
+        }
+
+        // Метод печати:
+        static void PrinterArray(int[,] array)
+        {
+            Console.WriteLine("\nЗаполненный массив: ");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
                     Console.Write(array[i, j] + "\t");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine($"\nСреднее арифметическое положительных чисел: {CalcArithmetic(array)}");
+        }
 
-            double CalcArithmetic(int[,] arr)
+        // Метод вычисления среднего арифметического положительных чисел:
+        static double CalcArithmetic(int[,] array)
+        {
+            int sum = 0;
+            int count = 0;
+
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                // Подсчет суммы и количества положительных чисел в массиве:
-                int sum = 0;
-                int count = 0;
-                for (int i = 0; i < rows; i++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    if (array[i, j] > 0)
                     {
-                        if (array[i, j] > 0)
-                        {
-                            sum += array[i, j];
-                            count++;
-                        }
+                        sum += array[i, j];
+                        count++;
                     }
                 }
-                double average = 0;
-
-                // Вычисление среднего арифметического значения:
-                if (count > 0)
-                {
-                    average = (double)sum / count;
-                }
-                else
-                {
-                    average = -1;
-                }
-                return average;
             }
-            Console.ReadKey();
+            return count > 0 ? (double)sum / count : -1;
         }
     }
 }
