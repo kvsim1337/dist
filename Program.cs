@@ -35,31 +35,36 @@ namespace Mikheev_Kruglov_dist
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine($"\nСреднее арифметическое положительных чисел: {CalcArithmetic(array)}");
 
-            // Подсчет суммы и количества положительных чисел в массиве:
-            int sum = 0;
-            int count = 0;
-            for (int i = 0; i < rows; i++)
+            double CalcArithmetic(int[,] arr)
             {
-                for (int j = 0; j < cols; j++)
+                // Подсчет суммы и количества положительных чисел в массиве:
+                int sum = 0;
+                int count = 0;
+                for (int i = 0; i < rows; i++)
                 {
-                    if (array[i, j] > 0)
+                    for (int j = 0; j < cols; j++)
                     {
-                        sum += array[i, j];
-                        count++;
+                        if (array[i, j] > 0)
+                        {
+                            sum += array[i, j];
+                            count++;
+                        }
                     }
                 }
-            }
+                double average = 0;
 
-            // Вычисление среднего арифметического значения:
-            if (count > 0)
-            {
-                double average = (double)sum / count;
-                Console.WriteLine($"\nСреднее арифметическое положительных чисел: {average}");
-            }
-            else
-            {
-                Console.WriteLine("В массиве нет положительных чисел!");
+                // Вычисление среднего арифметического значения:
+                if (count > 0)
+                {
+                    average = (double)sum / count;
+                }
+                else
+                {
+                    average = -1;
+                }
+                return average;
             }
             Console.ReadKey();
         }
